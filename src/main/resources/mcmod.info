@@ -1,0 +1,10 @@
+[
+	{
+		"modid": "idearunoken",
+		"name": "イデアルの剣",
+		"description": "イデアルの mod",
+		"version":"${version}",
+		"mcversion": "1.7.10",
+		"credits": "${credits}"
+	}
+]
