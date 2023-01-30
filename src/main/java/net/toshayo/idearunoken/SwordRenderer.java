@@ -1,6 +1,7 @@
 package net.toshayo.idearunoken;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
@@ -52,8 +53,14 @@ public class SwordRenderer implements IItemRenderer {
 			GL11.glRotatef(180, 1, 0, 0);
 			GL11.glScalef(1, 1, 0.4F);
 		} else if(type == ItemRenderType.ENTITY) {
-			GL11.glTranslatef(0, 100, -100);
-			GL11.glRotatef(180, 1, 0, 0);
+			EntityItem entity = (EntityItem) objects[1];
+			if(entity.posX == 0 && entity.posY == 0 && entity.posZ == 0 && entity.hoverStart == 0) {
+				GL11.glTranslatef(0, -15, 30);
+				GL11.glScalef(0.5F, 0.5F, 0.5F);
+			} else {
+				GL11.glTranslatef(0, 100, -100);
+				GL11.glRotatef(180, 1, 0, 0);
+			}
 		} else {
 			if(Minecraft.getMinecraft().thePlayer.getItemInUseCount() > 0) {
 				GL11.glTranslatef(0, 0, 20);
@@ -63,7 +70,7 @@ public class SwordRenderer implements IItemRenderer {
 		if(stack.getItem() != IdearuNoKen.SWORD) {
 			if(stack.getItem() == IdearuNoKen.SWORD_SHAPE) {
 				float color = 0.3F + 0.5F * ((8 - stack.getItemDamage()) / 8F);
-				GL11.glColor3f(color, color, color + 0.05F);
+				GL11.glColor3f(color, color, color + 0.1F);
 			} else
 				GL11.glColor3f(0.1F, 0.1F, 0.1F);
 			GL11.glBindTexture(GL11.GL_TEXTURE_2D, 0);
@@ -72,6 +79,12 @@ public class SwordRenderer implements IItemRenderer {
 				GL11.glRotatef(10, 0, 1, 0);
 				GL11.glTranslatef(10, -15, -10);
 			}
+		} else if(type == ItemRenderType.EQUIPPED){
+			GL11.glScalef(0.8F, 0.8F, 0.8F);
+			if(Minecraft.getMinecraft().thePlayer.getItemInUseCount() > 0) {
+				GL11.glTranslatef(5, 10, -5);
+			} else
+				GL11.glTranslatef(0, 10, 0);
 		}
 
 		GL11.glTranslatef(0, 35, -80);

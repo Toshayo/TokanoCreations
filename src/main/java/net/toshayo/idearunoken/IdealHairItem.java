@@ -32,6 +32,11 @@ public class IdealHairItem extends Item {
 	}
 
 	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+		return stack.getItemDamage() == 0 ? super.getUnlocalizedName(stack) : "item." + IdearuNoKen.MOD_ID + ".ideal_original_hair_strand";
+	}
+
+	@Override
 	public boolean getHasSubtypes() {
 		return true;
 	}
