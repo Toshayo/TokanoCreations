@@ -2,6 +2,7 @@ package net.toshayo.idearunoken;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.client.resources.I18n;
@@ -13,9 +14,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
 
+// TODO : add source for original hair strand
+// TODO : translate to ja_JP
+// TODO : add descriptions
+// TODO : if needed, hide some recipes from NEI
 
 @Mod(
 	modid = IdearuNoKen.MOD_ID,
@@ -61,7 +67,7 @@ public class IdearuNoKen {
 
 	@SuppressWarnings("unused")
 	@EventHandler
-	public void onPreLoad(FMLPreInitializationEvent event) {
+	public void onPreInit(FMLPreInitializationEvent event) {
 		GameRegistry.registerItem(SWORD_SHAPE, SWORD_SHAPE.getUnlocalizedName());
 		GameRegistry.registerItem(SWORD, SWORD.getUnlocalizedName());
 		GameRegistry.registerItem(SWORD_SHAPE_REINFORCED, SWORD_SHAPE_REINFORCED.getUnlocalizedName());
@@ -72,6 +78,11 @@ public class IdearuNoKen {
 		MinecraftForgeClient.registerItemRenderer(SWORD, new SwordRenderer());
 
 		registerCrafts();
+	}
+
+	@SuppressWarnings("unused")
+	public void onPostInit(FMLPostInitializationEvent event) {
+		MinecraftForge.EVENT_BUS.register(PlayerEventHandler.class);
 	}
 	
 	private void registerCrafts() {
