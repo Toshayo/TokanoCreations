@@ -81,8 +81,9 @@ public class IdearuNoKen {
 	}
 
 	@SuppressWarnings("unused")
+	@EventHandler
 	public void onPostInit(FMLPostInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(PlayerEventHandler.class);
+		MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
 	}
 	
 	private void registerCrafts() {
