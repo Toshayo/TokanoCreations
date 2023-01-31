@@ -24,11 +24,27 @@ minecraft {
 }
 
 repositories {
-
+	maven {
+		name = 'ModMaven'
+		url = 'https://modmaven.dev'
+	}
+	maven {
+		url = 'https://www.cursemaven.com/'
+	}
 }
 
 dependencies {
+	implementation 'curse.maven:baubles-227083:2224857'
+	implementation 'curse.maven:thaumcraft-223628:2227552'
 
+	implementation 'codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev'
+	compileOnly 'codechicken:CodeChickenCore:1.7.10-1.0.4.29:src'
+
+	implementation 'codechicken:CodeChickenLib:1.7.10-1.1.3.140:dev'
+	compileOnly 'codechicken:CodeChickenLib:1.7.10-1.1.3.140:src'
+
+	implementation 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:dev'
+	compileOnly 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:src'
 }
 
 processResources {
