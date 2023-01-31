@@ -49,3 +49,24 @@ processResources {
 	}
 }
 
+build {
+	doLast {
+		if(project.hasProperty("TOSHAYO_JKS")) {
+			println "Using Project properties for jar signing."
+			def jks_file = project.TOSHAYO_JKS
+			def passwd = project.TOSHAYO_PWD
+			if (jks_file != null && passwd != null) {
+				def exec_line = [
+						"jarsigner", "-keystore", jks_file, "-storepass",
+						passwd, jar.archivePath, project.TOSHAYO_APP_ALIAS
+				].execute()
+				exec_line.waitFor()
+				if(exec_line.exitValue() != 0) {
+					throw new RuntimeException("Signing failed!")
+				}
+			}
+		} else {
+			println 'No signing secrets found, build will not be signed.'
+		}
+	}
+}
