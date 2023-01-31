@@ -56,6 +56,6 @@ public class IdealHairItem extends Item {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag) {
-		list.add(EnumChatFormatting.DARK_AQUA.toString() + EnumChatFormatting.ITALIC + I18n.format(getUnlocalizedName() + ".tooltip[0]"));
+		list.add(EnumChatFormatting.DARK_AQUA.toString() + EnumChatFormatting.ITALIC + I18n.format(getUnlocalizedName(stack) + ".tooltip[0]"));
 	}
 }
