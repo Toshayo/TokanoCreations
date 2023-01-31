@@ -1,4 +1,4 @@
-package net.toshayo.idearunoken;
+package net.toshayo.tokanocreations;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SwordShapeItem extends Item {
 	public SwordShapeItem() {
-		setUnlocalizedName(IdearuNoKen.MOD_ID + ".sword_shape");
+		setUnlocalizedName(TokanoCreationsMod.MOD_ID + ".sword_shape");
 		setMaxStackSize(1);
 		setTextureName("iron_sword");
 	}
@@ -29,7 +29,7 @@ public class SwordShapeItem extends Item {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag) {
-		list.add(EnumChatFormatting.DARK_PURPLE.toString() + EnumChatFormatting.ITALIC + I18n.format("item.idearunoken.sword_shape.tooltip[0]"));
-		list.add(EnumChatFormatting.DARK_GREEN + I18n.format("item.idearunoken.sword_shape.tooltip[1]", 9 - getDamage(stack)));
+		list.add(EnumChatFormatting.DARK_PURPLE.toString() + EnumChatFormatting.ITALIC + I18n.format("item." + TokanoCreationsMod.MOD_ID + ".sword_shape.tooltip[0]"));
+		list.add(EnumChatFormatting.DARK_GREEN + I18n.format("item" + TokanoCreationsMod.MOD_ID + "sword_shape.tooltip[1]", 9 - getDamage(stack)));
 	}
 }

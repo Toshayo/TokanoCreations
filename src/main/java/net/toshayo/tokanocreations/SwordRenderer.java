@@ -1,4 +1,4 @@
-package net.toshayo.idearunoken;
+package net.toshayo.tokanocreations;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
@@ -10,8 +10,8 @@ import net.minecraftforge.client.model.IModelCustom;
 import org.lwjgl.opengl.GL11;
 
 public class SwordRenderer implements IItemRenderer {
-	public static final ResourceLocation swordTexture = new ResourceLocation(IdearuNoKen.MOD_ID, "textures/models/sword.png");
-	public static final IModelCustom swordModel = AdvancedModelLoader.loadModel(new ResourceLocation(IdearuNoKen.MOD_ID, "models/sword.obj"));
+	public static final ResourceLocation swordTexture = new ResourceLocation(TokanoCreationsMod.MOD_ID, "textures/models/sword.png");
+	public static final IModelCustom swordModel = AdvancedModelLoader.loadModel(new ResourceLocation(TokanoCreationsMod.MOD_ID, "models/sword.obj"));
 
 	@Override
 	public boolean handleRenderType(ItemStack stack, ItemRenderType type) {
@@ -67,8 +67,8 @@ public class SwordRenderer implements IItemRenderer {
 			}
 		}
 
-		if(stack.getItem() != IdearuNoKen.SWORD) {
-			if(stack.getItem() == IdearuNoKen.SWORD_SHAPE) {
+		if(stack.getItem() != TokanoCreationsMod.SWORD) {
+			if(stack.getItem() == TokanoCreationsMod.SWORD_SHAPE) {
 				float color = 0.3F + 0.5F * ((8 - stack.getItemDamage()) / 8F);
 				GL11.glColor3f(color, color, color + 0.1F);
 			} else

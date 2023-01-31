@@ -1,4 +1,4 @@
-package net.toshayo.idearunoken;
+package net.toshayo.tokanocreations;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
@@ -16,19 +16,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
-import net.toshayo.idearunoken.integration.thaumcraft.ThaumcraftPlugin;
+import net.toshayo.tokanocreations.integration.thaumcraft.ThaumcraftPlugin;
 
 import java.util.List;
 
 @Mod(
-		modid = IdearuNoKen.MOD_ID,
-		name = IdearuNoKen.NAME,
-		version = IdearuNoKen.VERSION,
+		modid = TokanoCreationsMod.MOD_ID,
+		name = TokanoCreationsMod.NAME,
+		version = TokanoCreationsMod.VERSION,
 		dependencies = "after:Thaumcraft@[4.2.3.5,)"
 )
-public class IdearuNoKen {
-	public static final String MOD_ID = "idearunoken";
-	public static final String NAME = "IdearuNoKen";
+public class TokanoCreationsMod {
+	public static final String MOD_ID = "tokanocreations";
+	public static final String NAME = "Tokano Creations Mod";
 	public static final String VERSION = "1.1.0";
 
 	public static final Item SWORD_SHAPE = new SwordShapeItem();
@@ -42,7 +42,7 @@ public class IdearuNoKen {
 		@SuppressWarnings("unchecked")
 		@Override
 		public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag) {
-			list.add(EnumChatFormatting.DARK_PURPLE.toString() + EnumChatFormatting.ITALIC + I18n.format("item.idearunoken.sword_shape_reinforced.tooltip[0]"));
+			list.add(EnumChatFormatting.DARK_PURPLE.toString() + EnumChatFormatting.ITALIC + I18n.format("item." + MOD_ID + ".sword_shape_reinforced.tooltip[0]"));
 		}
 	}.setUnlocalizedName(MOD_ID + ".sword_shape_reinforced").setMaxStackSize(1).setTextureName("iron_sword");
 
@@ -54,12 +54,12 @@ public class IdearuNoKen {
 		@SuppressWarnings("unchecked")
 		@Override
 		public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag) {
-			list.add(EnumChatFormatting.DARK_PURPLE.toString() + EnumChatFormatting.ITALIC + I18n.format("item.idearunoken.holy_core.tooltip[0]"));
+			list.add(EnumChatFormatting.DARK_PURPLE.toString() + EnumChatFormatting.ITALIC + I18n.format("item." + MOD_ID + ".holy_core.tooltip[0]"));
 		}
 	}.setUnlocalizedName(MOD_ID + ".holy_core").setTextureName(MOD_ID + ":holy_core");
 
 	
-	public IdearuNoKen() {
+	public TokanoCreationsMod() {
 	
 	}
 

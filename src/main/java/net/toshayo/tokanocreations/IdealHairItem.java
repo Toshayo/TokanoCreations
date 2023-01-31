@@ -1,4 +1,4 @@
-package net.toshayo.idearunoken;
+package net.toshayo.tokanocreations;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.resources.I18n;
@@ -16,14 +16,14 @@ public class IdealHairItem extends Item {
 	private IIcon originalHairIcon;
 
 	public IdealHairItem() {
-		setUnlocalizedName(IdearuNoKen.MOD_ID + ".ideal_hair_strand");
-		setTextureName(IdearuNoKen.MOD_ID + ":ideal_hair_strand");
+		setUnlocalizedName(TokanoCreationsMod.MOD_ID + ".ideal_hair_strand");
+		setTextureName(TokanoCreationsMod.MOD_ID + ":ideal_hair_strand");
 	}
 
 	@Override
 	public void registerIcons(IIconRegister iconRegister) {
 		super.registerIcons(iconRegister);
-		originalHairIcon = iconRegister.registerIcon(IdearuNoKen.MOD_ID + ":ideal_original_hair_strand");
+		originalHairIcon = iconRegister.registerIcon(TokanoCreationsMod.MOD_ID + ":ideal_original_hair_strand");
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class IdealHairItem extends Item {
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return stack.getItemDamage() == 0 ? super.getUnlocalizedName(stack) : "item." + IdearuNoKen.MOD_ID + ".ideal_original_hair_strand";
+		return stack.getItemDamage() == 0 ? super.getUnlocalizedName(stack) : "item." + TokanoCreationsMod.MOD_ID + ".ideal_original_hair_strand";
 	}
 
 	@Override

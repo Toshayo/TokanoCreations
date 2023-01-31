@@ -1,9 +1,9 @@
-package net.toshayo.idearunoken.integration.thaumcraft;
+package net.toshayo.tokanocreations.integration.thaumcraft;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.toshayo.idearunoken.IdearuNoKen;
+import net.toshayo.tokanocreations.TokanoCreationsMod;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -20,13 +20,13 @@ public class ThaumcraftPlugin {
 
 	public static void postInit() {
 		ThaumcraftApi.registerObjectTag(
-				new ItemStack(IdearuNoKen.SWORD_SHAPE),
+				new ItemStack(TokanoCreationsMod.SWORD_SHAPE),
 				new AspectList()
 						.add(Aspect.WEAPON, 5)
 						.add(Aspect.METAL, 40)
 		);
 		ThaumcraftApi.registerObjectTag(
-				new ItemStack(IdearuNoKen.SWORD),
+				new ItemStack(TokanoCreationsMod.SWORD),
 				new AspectList()
 						.add(Aspect.WEAPON, 38)
 						.add(Aspect.FLIGHT, 36)
@@ -39,7 +39,7 @@ public class ThaumcraftPlugin {
 						.add(Aspect.METAL, 30)
 		);
 		ThaumcraftApi.registerObjectTag(
-				new ItemStack(IdearuNoKen.SWORD_SHAPE_REINFORCED),
+				new ItemStack(TokanoCreationsMod.SWORD_SHAPE_REINFORCED),
 				new AspectList()
 						.add(Aspect.WEAPON, 10)
 						.add(Aspect.ENERGY, 22)
@@ -47,7 +47,7 @@ public class ThaumcraftPlugin {
 						.add(Aspect.METAL, 33)
 		);
 		ThaumcraftApi.registerObjectTag(
-				new ItemStack(IdearuNoKen.IDEAL_HAIR),
+				new ItemStack(TokanoCreationsMod.IDEAL_HAIR),
 				new AspectList()
 						.add(Aspect.LIGHT, 40)
 						.add(Aspect.DARKNESS, 40)
@@ -55,7 +55,7 @@ public class ThaumcraftPlugin {
 						.add(Aspect.DEATH, 40)
 		);
 		ThaumcraftApi.registerObjectTag(
-				new ItemStack(IdearuNoKen.IDEAL_HAIR, 1, 1),
+				new ItemStack(TokanoCreationsMod.IDEAL_HAIR, 1, 1),
 				new AspectList()
 						.add(Aspect.CLOTH, 5)
 						.add(Aspect.AIR, 5)
@@ -73,7 +73,7 @@ public class ThaumcraftPlugin {
 	public static void registerCrafts() {
 		SWORD_SHAPE_RECIPE = ThaumcraftApi.addArcaneCraftingRecipe(
 				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
-				new ItemStack(IdearuNoKen.SWORD_SHAPE),
+				new ItemStack(TokanoCreationsMod.SWORD_SHAPE),
 				new AspectList()
 						.add(Aspect.AIR, 3)
 						.add(Aspect.EARTH, 10)
@@ -84,7 +84,7 @@ public class ThaumcraftPlugin {
 		);
 		HOLY_CORE_RECIPE = ThaumcraftApi.addArcaneCraftingRecipe(
 				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
-				new ItemStack(IdearuNoKen.HOLY_CORE),
+				new ItemStack(TokanoCreationsMod.HOLY_CORE),
 				new AspectList()
 						.add(Aspect.AIR, 20)
 						.add(Aspect.FIRE, 20)
@@ -96,15 +96,15 @@ public class ThaumcraftPlugin {
 		);
 		ORIGINAL_IDEAL_HAIR_RECIPE = ThaumcraftApi.addCrucibleRecipe(
 				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
-				new ItemStack(IdearuNoKen.IDEAL_HAIR, 1, 1),
-				new ItemStack(IdearuNoKen.IDEAL_HAIR),
+				new ItemStack(TokanoCreationsMod.IDEAL_HAIR, 1, 1),
+				new ItemStack(TokanoCreationsMod.IDEAL_HAIR),
 				new AspectList()
 						.add(Aspect.EXCHANGE, 16)
 						.add(Aspect.LIFE, 8)
 		);
 		SWORD_RECIPE = ThaumcraftApi.addInfusionCraftingRecipe(
 				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
-				new ItemStack(IdearuNoKen.SWORD),
+				new ItemStack(TokanoCreationsMod.SWORD),
 				10,
 				new AspectList()
 						.add(Aspect.MAGIC, 256)
@@ -115,14 +115,14 @@ public class ThaumcraftPlugin {
 						.add(Aspect.ENERGY, 64)
 						.add(Aspect.METAL, 64)
 						.add(Aspect.WEAPON, 32),
-				new ItemStack(IdearuNoKen.SWORD_SHAPE_REINFORCED),
+				new ItemStack(TokanoCreationsMod.SWORD_SHAPE_REINFORCED),
 				new ItemStack[] {
 						new ItemStack(Items.feather),
-						new ItemStack(IdearuNoKen.IDEAL_HAIR, 1, 1),
+						new ItemStack(TokanoCreationsMod.IDEAL_HAIR, 1, 1),
 						new ItemStack(Items.feather),
-						new ItemStack(IdearuNoKen.HOLY_CORE),
+						new ItemStack(TokanoCreationsMod.HOLY_CORE),
 						new ItemStack(Items.feather),
-						new ItemStack(IdearuNoKen.IDEAL_HAIR)
+						new ItemStack(TokanoCreationsMod.IDEAL_HAIR)
 				}
 		);
 	}

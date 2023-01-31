@@ -1,4 +1,4 @@
-package net.toshayo.idearunoken;
+package net.toshayo.tokanocreations;
 
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,7 +13,7 @@ import net.minecraft.potion.PotionEffect;
 public class SwordItem extends ItemSword {
 	public SwordItem() {
 		super(ToolMaterial.EMERALD);
-		setUnlocalizedName(IdearuNoKen.MOD_ID + ".sword");
+		setUnlocalizedName(TokanoCreationsMod.MOD_ID + ".sword");
 		setMaxDamage(-1);
 	}
 

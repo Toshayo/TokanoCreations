@@ -1,4 +1,4 @@
-package net.toshayo.idearunoken;
+package net.toshayo.tokanocreations;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.item.ItemStack;
@@ -11,7 +11,7 @@ public class PlayerEventHandler {
 		if(!event.wakeImmediatly && !event.entity.worldObj.isRemote && event.entity.worldObj.rand.nextFloat() <= 0.01) {
 			int slot = event.entityPlayer.inventory.getFirstEmptyStack();
 			if(slot >= 0)
-				event.entityPlayer.inventory.setInventorySlotContents(slot, new ItemStack(IdearuNoKen.IDEAL_HAIR));
+				event.entityPlayer.inventory.setInventorySlotContents(slot, new ItemStack(TokanoCreationsMod.IDEAL_HAIR));
 		}
 	}
 }
