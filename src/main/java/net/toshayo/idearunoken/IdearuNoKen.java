@@ -1,7 +1,6 @@
 package net.toshayo.idearunoken;
 
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -18,7 +17,6 @@ import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
 
-// TODO : add source for original hair strand
 // TODO : translate to ja_JP
 // TODO : add descriptions
 // TODO : if needed, hide some recipes from NEI
@@ -66,7 +64,7 @@ public class IdearuNoKen {
 	}
 
 	@SuppressWarnings("unused")
-	@EventHandler
+	@Mod.EventHandler
 	public void onPreInit(FMLPreInitializationEvent event) {
 		GameRegistry.registerItem(SWORD_SHAPE, SWORD_SHAPE.getUnlocalizedName());
 		GameRegistry.registerItem(SWORD, SWORD.getUnlocalizedName());
@@ -81,9 +79,9 @@ public class IdearuNoKen {
 	}
 
 	@SuppressWarnings("unused")
-	@EventHandler
+	@Mod.EventHandler
 	public void onPostInit(FMLPostInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
+		MinecraftForge.EVENT_BUS.register(new EventHandler());
 	}
 	
 	private void registerCrafts() {
