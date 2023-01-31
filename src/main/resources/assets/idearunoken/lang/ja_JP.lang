@@ -1,1 +1,18 @@
-item.idearunoken.sword.name=イデアルの剣
+item.idearunoken.sword.name=イデアルちゃんの剣
+item.idearunoken.sword_shape.name=剣の形
+item.idearunoken.sword_shape.tooltip[0]=火は刃を強化する...
+item.idearunoken.sword_shape.tooltip[1]=%d回精製する
+item.idearunoken.sword_shape_reinforced.name=強化刀身
+item.idearunoken.sword_shape_reinforced.tooltip[0]=過去と現在をつなぐ...
+item.idearunoken.ideal_original_hair_strand.name=イデアルちゃんのもともなと
+item.idearunoken.ideal_original_hair_strand.tooltip[0]=~ 設定 #14 ~
+item.idearunoken.ideal_hair_strand.name=イデアルちゃんの髪
+item.idearunoken.ideal_hair_strand.tooltip[0]=~ 設定 #16 ~
+item.idearunoken.holy_core.name=聖なる核
+item.idearunoken.holy_core.tooltip[0]=凝縮された光の力
+
+tc.research_name.TOKANO_CREATIONS=イデアルちゃんの髪設定
+tc.research_text.TOKANO_CREATIONS=@tokachan5656の啓示
+tc.research_page.idearunoken.TOKANO_CREATIONS.1=§l14.§r§o過去の彼女は黒髪で、幼少期は主人公と仲がとてもよかったのですが(かなり平和だった)、村がとある組織の襲撃を受け、攫われました
+tc.research_page.idearunoken.TOKANO_CREATIONS.2=§l15.§r§oとある組織の名前は"Black Lotus"で、天使こそ救世主だと妄信してるやばい奴らです
+tc.research_page.idearunoken.TOKANO_CREATIONS.3=§l16.§r§oそんなやばい奴らに攫われて、3年間天使化実験を受け、ストレスなどでアルビノになりました
