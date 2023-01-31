@@ -105,7 +105,7 @@ public class ThaumcraftPlugin {
 		SWORD_RECIPE = ThaumcraftApi.addInfusionCraftingRecipe(
 				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
 				new ItemStack(IdearuNoKen.SWORD),
-				20,
+				10,
 				new AspectList()
 						.add(Aspect.MAGIC, 256)
 						.add(Aspect.LIGHT, 128)
