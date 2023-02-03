@@ -69,7 +69,7 @@ public class SwordRenderer implements IItemRenderer {
 
 		if(stack.getItem() != TokanoCreationsMod.SWORD) {
 			if(stack.getItem() == TokanoCreationsMod.SWORD_SHAPE) {
-				float color = 0.3F + 0.5F * ((8 - stack.getItemDamage()) / 8F);
+				float color = 0.3F + 0.5F * ((SwordShapeItem.REINFORCE_COOK_TIMES - 1F - stack.getItemDamage()) / SwordShapeItem.REINFORCE_COOK_TIMES);
 				GL11.glColor3f(color, color, color + 0.1F);
 			} else
 				GL11.glColor3f(0.1F, 0.1F, 0.1F);

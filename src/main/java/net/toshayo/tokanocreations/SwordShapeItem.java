@@ -10,6 +10,8 @@ import net.minecraft.util.EnumChatFormatting;
 import java.util.List;
 
 public class SwordShapeItem extends Item {
+	public static final int REINFORCE_COOK_TIMES = 3;
+
 	public SwordShapeItem() {
 		setUnlocalizedName(TokanoCreationsMod.MOD_ID + ".sword_shape");
 		setMaxStackSize(1);
@@ -30,6 +32,6 @@ public class SwordShapeItem extends Item {
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag) {
 		list.add(EnumChatFormatting.DARK_PURPLE.toString() + EnumChatFormatting.ITALIC + I18n.format("item." + TokanoCreationsMod.MOD_ID + ".sword_shape.tooltip[0]"));
-		list.add(EnumChatFormatting.DARK_GREEN + I18n.format("item" + TokanoCreationsMod.MOD_ID + "sword_shape.tooltip[1]", 9 - getDamage(stack)));
+		list.add(EnumChatFormatting.DARK_GREEN + I18n.format("item." + TokanoCreationsMod.MOD_ID + ".sword_shape.tooltip[1]", REINFORCE_COOK_TIMES - getDamage(stack)));
 	}
 }

@@ -8,7 +8,7 @@ import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
 
 public class ModThaumcraftResearch {
-	public static String TOKANO_CREATIONS_RESEARCH_KEY = "TOKANO_CREATIONS";
+	public static final String TOKANO_CREATIONS_RESEARCH_KEY = "TOKANO_CREATIONS";
 
 	public static void init() {
 		registerResearch();

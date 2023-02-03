@@ -29,7 +29,7 @@ import java.util.List;
 public class TokanoCreationsMod {
 	public static final String MOD_ID = "tokanocreations";
 	public static final String NAME = "Tokano Creations Mod";
-	public static final String VERSION = "1.2.0";
+	public static final String VERSION = "1.2.1";
 
 	public static final Item SWORD_SHAPE = new SwordShapeItem();
 
@@ -89,9 +89,9 @@ public class TokanoCreationsMod {
 	}
 	
 	private void registerCrafts() {
-		for(int i = 0; i < 8; i++)
+		for(int i = 0; i < SwordShapeItem.REINFORCE_COOK_TIMES - 1; i++)
 			GameRegistry.addSmelting(new ItemStack(SWORD_SHAPE, 1, i), new ItemStack(SWORD_SHAPE, 1, i + 1), 100);
-		GameRegistry.addSmelting(new ItemStack(SWORD_SHAPE, 1, 8), new ItemStack(SWORD_SHAPE_REINFORCED), 100);
+		GameRegistry.addSmelting(new ItemStack(SWORD_SHAPE, 1, SwordShapeItem.REINFORCE_COOK_TIMES - 1), new ItemStack(SWORD_SHAPE_REINFORCED), 100);
 		if(Loader.isModLoaded("Thaumcraft"))
 			ThaumcraftPlugin.registerCrafts();
 		else {
