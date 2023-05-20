@@ -24,12 +24,13 @@ import java.util.List;
 		modid = TokanoCreationsMod.MOD_ID,
 		name = TokanoCreationsMod.NAME,
 		version = TokanoCreationsMod.VERSION,
-		dependencies = "after:Thaumcraft@[4.2.3.5,)"
+		dependencies = "after:Thaumcraft@[4.2.3.5,)",
+		certificateFingerprint = "ee4beef430d574ba7d8c096a4f7f9c6c755bd30f"
 )
 public class TokanoCreationsMod {
 	public static final String MOD_ID = "tokanocreations";
 	public static final String NAME = "Tokano Creations Mod";
-	public static final String VERSION = "1.2.1";
+	public static final String VERSION = "1.2.2";
 
 	public static final Item SWORD_SHAPE = new SwordShapeItem();
 
