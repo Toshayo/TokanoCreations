@@ -2,6 +2,7 @@ package net.toshayo.tokanocreations;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLFingerprintViolationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -14,9 +15,14 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
+import net.toshayo.tokanocreations.events.AnvilEventHandler;
+import net.toshayo.tokanocreations.events.PlayerEventHandler;
 import net.toshayo.tokanocreations.integration.thaumcraft.ThaumcraftPlugin;
+import net.toshayo.tokanocreations.item.IdealHairItem;
+import net.toshayo.tokanocreations.item.SwordItem;
+import net.toshayo.tokanocreations.item.SwordShapeItem;
+import net.toshayo.tokanocreations.proxy.CommonProxy;
 
 import java.util.List;
 
@@ -30,7 +36,10 @@ import java.util.List;
 public class TokanoCreationsMod {
 	public static final String MOD_ID = "tokanocreations";
 	public static final String NAME = "Tokano Creations Mod";
-	public static final String VERSION = "1.2.2";
+	public static final String VERSION = "1.2.3";
+
+	@SidedProxy(serverSide = "net.toshayo.tokanocreations.proxy.CommonProxy", clientSide = "net.toshayo.tokanocreations.proxy.ClientProxy")
+	public static CommonProxy proxy;
 
 	public static final Item SWORD_SHAPE = new SwordShapeItem();
 
@@ -72,9 +81,8 @@ public class TokanoCreationsMod {
 		GameRegistry.registerItem(SWORD_SHAPE_REINFORCED, SWORD_SHAPE_REINFORCED.getUnlocalizedName());
 		GameRegistry.registerItem(IDEAL_HAIR, IDEAL_HAIR.getUnlocalizedName());
 		GameRegistry.registerItem(HOLY_CORE, HOLY_CORE.getUnlocalizedName());
-		MinecraftForgeClient.registerItemRenderer(SWORD_SHAPE, new SwordRenderer());
-		MinecraftForgeClient.registerItemRenderer(SWORD_SHAPE_REINFORCED, new SwordRenderer());
-		MinecraftForgeClient.registerItemRenderer(SWORD, new SwordRenderer());
+
+		proxy.onPreInit();
 
 		registerCrafts();
 	}

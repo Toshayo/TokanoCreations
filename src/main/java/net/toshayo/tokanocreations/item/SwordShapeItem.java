@@ -1,4 +1,4 @@
-package net.toshayo.tokanocreations;
+package net.toshayo.tokanocreations.item;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -6,6 +6,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.toshayo.tokanocreations.TokanoCreationsMod;
 
 import java.util.List;
 

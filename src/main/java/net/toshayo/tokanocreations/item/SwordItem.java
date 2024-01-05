@@ -1,4 +1,4 @@
-package net.toshayo.tokanocreations;
+package net.toshayo.tokanocreations.item;
 
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.toshayo.tokanocreations.TokanoCreationsMod;
 
 public class SwordItem extends ItemSword {
 	public SwordItem() {

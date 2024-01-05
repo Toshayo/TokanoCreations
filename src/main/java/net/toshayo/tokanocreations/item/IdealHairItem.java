@@ -1,4 +1,4 @@
-package net.toshayo.tokanocreations;
+package net.toshayo.tokanocreations.item;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.resources.I18n;
@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.toshayo.tokanocreations.TokanoCreationsMod;
 
 import java.util.List;
 

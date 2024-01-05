@@ -1,9 +1,10 @@
-package net.toshayo.tokanocreations;
+package net.toshayo.tokanocreations.events;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.AnvilUpdateEvent;
+import net.toshayo.tokanocreations.TokanoCreationsMod;
 
 public class AnvilEventHandler {
 	@SuppressWarnings("unused")

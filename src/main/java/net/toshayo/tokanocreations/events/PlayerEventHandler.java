@@ -1,8 +1,9 @@
-package net.toshayo.tokanocreations;
+package net.toshayo.tokanocreations.events;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+import net.toshayo.tokanocreations.TokanoCreationsMod;
 
 public class PlayerEventHandler {
 	@SuppressWarnings("unused")
