@@ -24,15 +24,25 @@ public class SwordItem extends ItemSword {
 	}
 
 	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase attacker, EntityLivingBase target) {
+	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		target.addPotionEffect(new PotionEffect(Potion.wither.id, 100, 2, false));
 		target.addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 2, false));
-		return super.hitEntity(stack, attacker, target);
+		return super.hitEntity(stack, target, attacker);
+	}
+
+	@Override
+	public boolean isDamageable() {
+		return true;
 	}
 
 	@Override
 	public float func_150931_i() {
 		return 40F;
+	}
+
+	@Override
+	public int getItemEnchantability() {
+		return 50;
 	}
 
 	@SuppressWarnings({"unchecked", "rawtypes"})

@@ -11,19 +11,13 @@ to the character setting (you can find the full version of it on
 [this post](https://twitter.com/tokachan5656/status/1489259520325201921))
 
 Without Thaumcraft, you can use [NEI](https://www.curseforge.com/minecraft/mc-mods/notenoughitems)
-to view recipes. However, the recipe of combining the clock with the hair
-strand will not be visible.
-
-An item used in the sword craft is gotten on a game event.
-The hint is hidden in the character setting (the link is given above). :)
+to view recipes. However, some recipes might be not visible.
 
 ## Known problems
-I suppose the japanese translations being very inaccurate because
-I've translated them with Google Translate. Though I tried to
-make phrases rather simple, and I've checked the reverse
-translation, but it is still not ideal.
+Japanese localization is machine translation, so it can be very inaccurate. Though I tried to
+make phrases rather simple, and I've cross-checked the translation, but it is still not ideal.
 
 ## Mod usage
 The mod has been developed for myself and for the artist,
-so I would like you to ask me if you want to use the mod in a
-modpack. (Discord : @Toshayo#5540)
+so if you want to use the mod in a modpack,
+I would be glad if you notify me. (Discord : @Toshayo#5540)
