@@ -15,10 +15,8 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.common.MinecraftForge;
-import net.toshayo.tokanocreations.events.AnvilEventHandler;
-import net.toshayo.tokanocreations.events.PlayerEventHandler;
 import net.toshayo.tokanocreations.integration.thaumcraft.ThaumcraftPlugin;
+import net.toshayo.tokanocreations.item.CrossItem;
 import net.toshayo.tokanocreations.item.IdealHairItem;
 import net.toshayo.tokanocreations.item.SwordItem;
 import net.toshayo.tokanocreations.item.SwordShapeItem;
@@ -59,6 +57,7 @@ public class TokanoCreationsMod {
 	public static final Item SWORD = new SwordItem().setTextureName("iron_sword");
 
 	public static final Item IDEAL_HAIR = new IdealHairItem();
+	public static final Item CROSS = new CrossItem().setTextureName("iron_ingot");
 
 	public static final Item HOLY_CORE = new Item() {
 		@SuppressWarnings("unchecked")
@@ -81,6 +80,7 @@ public class TokanoCreationsMod {
 		GameRegistry.registerItem(SWORD_SHAPE_REINFORCED, SWORD_SHAPE_REINFORCED.getUnlocalizedName());
 		GameRegistry.registerItem(IDEAL_HAIR, IDEAL_HAIR.getUnlocalizedName());
 		GameRegistry.registerItem(HOLY_CORE, HOLY_CORE.getUnlocalizedName());
+		GameRegistry.registerItem(CROSS, CROSS.getUnlocalizedName());
 
 		proxy.onPreInit();
 
@@ -90,11 +90,7 @@ public class TokanoCreationsMod {
 	@SuppressWarnings("unused")
 	@Mod.EventHandler
 	public void onPostInit(FMLPostInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
-		if(Loader.isModLoaded("Thaumcraft"))
-			ThaumcraftPlugin.postInit();
-		else
-			MinecraftForge.EVENT_BUS.register(new AnvilEventHandler());
+		proxy.onPostInit();
 	}
 	
 	private void registerCrafts() {

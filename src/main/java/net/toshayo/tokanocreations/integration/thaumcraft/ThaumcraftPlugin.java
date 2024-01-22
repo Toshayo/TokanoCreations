@@ -17,6 +17,7 @@ public class ThaumcraftPlugin {
 	public static ShapedArcaneRecipe HOLY_CORE_RECIPE;
 	public static CrucibleRecipe ORIGINAL_IDEAL_HAIR_RECIPE;
 	public static InfusionRecipe SWORD_RECIPE;
+	public static InfusionRecipe CROSS_RECIPE;
 
 	public static void postInit() {
 		ThaumcraftApi.registerObjectTag(
@@ -63,11 +64,16 @@ public class ThaumcraftPlugin {
 						.add(Aspect.LIGHT, 3)
 						.add(Aspect.DARKNESS, 6)
 		);
+		ThaumcraftApi.registerObjectTag(
+				new ItemStack(TokanoCreationsMod.CROSS),
+				new AspectList()
+						.add(Aspect.ARMOR, 21)
+						.add(Aspect.LIGHT, 14)
+						.add(Aspect.DARKNESS, 10)
+						.add(Aspect.LIFE, 12)
+						.add(Aspect.DEATH, 9)
+		);
 		ModThaumcraftResearch.init();
-	}
-
-	public static ItemStack getAmuletStack() {
-		return new ItemStack(ConfigItems.itemResource, 1, 15);
 	}
 
 	public static void registerCrafts() {
@@ -125,5 +131,29 @@ public class ThaumcraftPlugin {
 						new ItemStack(TokanoCreationsMod.IDEAL_HAIR)
 				}
 		);
+		CROSS_RECIPE = ThaumcraftApi.addInfusionCraftingRecipe(
+				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
+				new ItemStack(TokanoCreationsMod.CROSS),
+				3,
+				new AspectList()
+						.add(Aspect.MAGIC, 32)
+						.add(Aspect.LIGHT, 64)
+						.add(Aspect.DARKNESS, 48)
+						.add(Aspect.LIFE, 16)
+						.add(Aspect.DEATH, 24)
+						.add(Aspect.ENERGY, 64)
+						.add(Aspect.ARMOR, 32),
+				new ItemStack(ConfigItems.itemAmuletRunic, 1, 0),
+				new ItemStack[] {
+						new ItemStack(TokanoCreationsMod.HOLY_CORE),
+						ConfigItems.WAND_ROD_OBSIDIAN.getItem(),
+						ConfigItems.STAFF_ROD_OBSIDIAN.getItem(),
+						ConfigItems.WAND_ROD_OBSIDIAN.getItem(),
+				}
+		);
+	}
+
+	private static ItemStack getAmuletStack() {
+		return new ItemStack(ConfigItems.itemResource, 1, 15);
 	}
 }
