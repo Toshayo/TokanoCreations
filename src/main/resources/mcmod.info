@@ -2,7 +2,7 @@
 	{
 		"modid": "tokanocreations",
 		"name": "Tokano Creations Mod",
-		"description": "Ideal-chan's sword with Thaumcraft (optional) integrations",
+		"description": "tokachan5656's characters items with optional (but recommended) Thaumcraft and TravellersGear integrations",
 		"version":"${version}",
 		"mcversion": "1.7.10",
 		"credits": "${credits}"

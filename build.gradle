@@ -6,8 +6,8 @@ buildscript {
 	}
 	dependencies {
 		classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.1.1') {
-            		changing = true
-        	}
+			changing = true
+		}
 	}
 }
 
@@ -21,6 +21,8 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 minecraft {
 	version = "1.7.10-10.13.4.1614-1.7.10"
 	runDir = "run"
+
+	replace "@@VERSION@@", project.version
 }
 
 repositories {

@@ -25,12 +25,13 @@ import java.util.List;
 		name = TokanoCreationsMod.NAME,
 		version = TokanoCreationsMod.VERSION,
 		dependencies = "after:Thaumcraft@[4.2.3.5,);after:TravellersGear@[1.16.6,);after:baubles@[1.0.1.10,)",
+		acceptedMinecraftVersions = "1.7.10",
 		certificateFingerprint = "ee4beef430d574ba7d8c096a4f7f9c6c755bd30f"
 )
 public class TokanoCreationsMod {
 	public static final String MOD_ID = "tokanocreations";
 	public static final String NAME = "Tokano Creations Mod";
-	public static final String VERSION = "1.2.3";
+	public static final String VERSION = "@@VERSION@@";
 
 	@SidedProxy(serverSide = "net.toshayo.tokanocreations.proxy.CommonProxy", clientSide = "net.toshayo.tokanocreations.proxy.ClientProxy")
 	public static CommonProxy proxy;
@@ -43,9 +44,9 @@ public class TokanoCreationsMod {
 			return EnumRarity.rare;
 		}
 
-		@SuppressWarnings("unchecked")
 		@Override
 		public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag) {
+			//noinspection unchecked
 			list.add(EnumChatFormatting.DARK_PURPLE.toString() + EnumChatFormatting.ITALIC + I18n.format("item." + MOD_ID + ".sword_shape_reinforced.tooltip[0]"));
 		}
 	}.setUnlocalizedName(MOD_ID + ".sword_shape_reinforced").setMaxStackSize(1).setTextureName("iron_sword");
@@ -67,7 +68,6 @@ public class TokanoCreationsMod {
 	public static final Item TAIYAKI = new TaiyakiItem().setTextureName(MOD_ID + ":taiyaki");
 	public static Item TITLE_FAN;
 
-	@SuppressWarnings("unused")
 	@Mod.EventHandler
 	public void onPreInit(FMLPreInitializationEvent event) {
 		GameRegistry.registerItem(SWORD, SWORD.getUnlocalizedName());
@@ -85,13 +85,11 @@ public class TokanoCreationsMod {
 		proxy.onPreInit();
 	}
 
-	@SuppressWarnings("unused")
 	@Mod.EventHandler
 	public void onPostInit(FMLPostInitializationEvent event) {
 		proxy.onPostInit();
 	}
 
-	@SuppressWarnings("unused")
 	@Mod.EventHandler
 	public static void onFingerPrintViolation(FMLFingerprintViolationEvent event) {
 		if (!event.isDirectory) {
