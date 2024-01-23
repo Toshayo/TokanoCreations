@@ -42,9 +42,10 @@ public class TravellersGearIntegration {
     public static void registerMundaneCrafts() {
         GameRegistry.addShapedRecipe(
                 new ItemStack(TokanoCreationsMod.TITLE_FAN),
-                "DSD", "PPP", "LLL",
+                "DRD", "PBP", "LLL",
                 'D', new ItemStack(Items.diamond),
-                'S', new ItemStack(Items.nether_star),
+                'R', new ItemStack(Items.dye, 1, 1),
+                'B', new ItemStack(Items.book),
                 'P', new ItemStack(Items.paper),
                 'L', new ItemStack(Items.dye, 1, 4)
         );

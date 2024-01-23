@@ -24,7 +24,7 @@ import java.util.List;
 		modid = TokanoCreationsMod.MOD_ID,
 		name = TokanoCreationsMod.NAME,
 		version = TokanoCreationsMod.VERSION,
-		dependencies = "after:Thaumcraft@[4.2.3.5,);after:TravellersGear@[1.16.6,);after:baubles@[1.0.1.10,)",
+		dependencies = "after:Thaumcraft@[4.2.3.5,);after:TravellersGear@[1.16.6,);after:Baubles@[1.0.1.10,)",
 		acceptedMinecraftVersions = "1.7.10",
 		certificateFingerprint = "ee4beef430d574ba7d8c096a4f7f9c6c755bd30f"
 )
