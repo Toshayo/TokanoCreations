@@ -16,10 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.toshayo.tokanocreations.integration.thaumcraft.ThaumcraftPlugin;
-import net.toshayo.tokanocreations.item.CrossItem;
-import net.toshayo.tokanocreations.item.IdealHairItem;
-import net.toshayo.tokanocreations.item.SwordItem;
-import net.toshayo.tokanocreations.item.SwordShapeItem;
+import net.toshayo.tokanocreations.item.*;
 import net.toshayo.tokanocreations.proxy.CommonProxy;
 
 import java.util.List;
@@ -67,7 +64,9 @@ public class TokanoCreationsMod {
 		}
 	}.setUnlocalizedName(MOD_ID + ".holy_core").setTextureName(MOD_ID + ":holy_core");
 
-	
+	public static final Item TAIYAKI = new TaiyakiItem().setTextureName(MOD_ID + ":taiyaki");
+
+
 	public TokanoCreationsMod() {
 	
 	}
@@ -81,6 +80,7 @@ public class TokanoCreationsMod {
 		GameRegistry.registerItem(IDEAL_HAIR, IDEAL_HAIR.getUnlocalizedName());
 		GameRegistry.registerItem(HOLY_CORE, HOLY_CORE.getUnlocalizedName());
 		GameRegistry.registerItem(CROSS, CROSS.getUnlocalizedName());
+		GameRegistry.registerItem(TAIYAKI, TAIYAKI.getUnlocalizedName());
 
 		proxy.onPreInit();
 

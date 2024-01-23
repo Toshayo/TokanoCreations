@@ -3,6 +3,7 @@ package net.toshayo.tokanocreations.integration.thaumcraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import net.toshayo.tokanocreations.TokanoCreationsMod;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
@@ -15,6 +16,7 @@ import thaumcraft.common.config.ConfigItems;
 public class ThaumcraftPlugin {
 	public static ShapedArcaneRecipe SWORD_SHAPE_RECIPE;
 	public static ShapedArcaneRecipe HOLY_CORE_RECIPE;
+	public static ShapedArcaneRecipe TAIYAKI_RECIPE;
 	public static CrucibleRecipe ORIGINAL_IDEAL_HAIR_RECIPE;
 	public static InfusionRecipe SWORD_RECIPE;
 	public static InfusionRecipe CROSS_RECIPE;
@@ -73,12 +75,21 @@ public class ThaumcraftPlugin {
 						.add(Aspect.LIFE, 12)
 						.add(Aspect.DEATH, 9)
 		);
+		ThaumcraftApi.registerObjectTag(
+				new ItemStack(TokanoCreationsMod.TAIYAKI),
+				new AspectList()
+						.add(Aspect.HUNGER, 20)
+						.add(Aspect.CROP, 16)
+						.add(Aspect.LIGHT, 5)
+						.add(Aspect.DARKNESS, 3)
+						.add(Aspect.LIFE, 12)
+		);
 		ModThaumcraftResearch.init();
 	}
 
 	public static void registerCrafts() {
 		SWORD_SHAPE_RECIPE = ThaumcraftApi.addArcaneCraftingRecipe(
-				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
+				ModThaumcraftResearch.TOKANO_CREATIONS_SWORD_RESEARCH_KEY,
 				new ItemStack(TokanoCreationsMod.SWORD_SHAPE),
 				new AspectList()
 						.add(Aspect.AIR, 3)
@@ -100,6 +111,18 @@ public class ThaumcraftPlugin {
 				'F', new ItemStack(Items.feather),
 				'A', ThaumcraftPlugin.getAmuletStack()
 		);
+		TAIYAKI_RECIPE = ThaumcraftApi.addArcaneCraftingRecipe(
+				ModThaumcraftResearch.TOKANO_CREATIONS_SWEETS_RESEARCH_KEY,
+				new ItemStack(TokanoCreationsMod.TAIYAKI),
+				new AspectList()
+						.add(Aspect.AIR, 10)
+						.add(Aspect.FIRE, 20)
+						.add(Aspect.EARTH, 5)
+						.add(Aspect.ORDER, 15),
+				" WW", "WCW", " WW",
+				'W', OreDictionary.doesOreNameExist("dustWheat") ? OreDictionary.getOres("dustWheat").get(0) : new ItemStack(Items.wheat),
+				'C', new ItemStack(Items.sugar)
+		);
 		ORIGINAL_IDEAL_HAIR_RECIPE = ThaumcraftApi.addCrucibleRecipe(
 				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
 				new ItemStack(TokanoCreationsMod.IDEAL_HAIR, 1, 1),
@@ -109,7 +132,7 @@ public class ThaumcraftPlugin {
 						.add(Aspect.LIFE, 8)
 		);
 		SWORD_RECIPE = ThaumcraftApi.addInfusionCraftingRecipe(
-				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
+				ModThaumcraftResearch.TOKANO_CREATIONS_SWORD_RESEARCH_KEY,
 				new ItemStack(TokanoCreationsMod.SWORD),
 				10,
 				new AspectList()
@@ -132,7 +155,7 @@ public class ThaumcraftPlugin {
 				}
 		);
 		CROSS_RECIPE = ThaumcraftApi.addInfusionCraftingRecipe(
-				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
+				ModThaumcraftResearch.TOKANO_CREATIONS_BAUBLES_RESEARCH_KEY,
 				new ItemStack(TokanoCreationsMod.CROSS),
 				3,
 				new AspectList()
