@@ -2,6 +2,7 @@ package net.toshayo.tokanocreations.item;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Optional;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -46,9 +47,11 @@ public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscoun
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
         super.addInformation(stack, player, list, p_77624_4_);
-        if(this.getVisDiscount(stack, player, null) != 0) {
-            //noinspection unchecked
-            list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("tc.visdiscount") + ": " + this.getVisDiscount(stack, player, null) + "%");
+        if(Loader.isModLoaded("Thaumcraft")) {
+            if (this.getVisDiscount(stack, player, null) != 0) {
+                //noinspection unchecked
+                list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("tc.visdiscount") + ": " + this.getVisDiscount(stack, player, null) + "%");
+            }
         }
     }
 
