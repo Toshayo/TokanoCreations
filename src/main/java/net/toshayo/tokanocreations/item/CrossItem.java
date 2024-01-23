@@ -2,6 +2,8 @@ package net.toshayo.tokanocreations.item;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
+import cpw.mods.fml.common.Optional;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -17,17 +19,37 @@ import thaumcraft.common.lib.events.EventHandlerRunic;
 
 import java.util.List;
 
+@Optional.InterfaceList(
+        value = {
+                @Optional.Interface(
+                        modid = "Baubles",
+                        iface = "baubles.api.IBauble"
+                ),
+                @Optional.Interface(
+                        modid = "Thaumcraft",
+                        iface = "thaumcraft.api.IRunicArmor"
+                ),
+                @Optional.Interface(
+                        modid = "Thaumcraft",
+                        iface = "thaumcraft.api.IVisDiscountGear"
+                )
+        }
+)
 public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscountGear {
     public CrossItem() {
         super();
         setUnlocalizedName(TokanoCreationsMod.MOD_ID + ".cross");
+        setCreativeTab(CreativeTabs.tabCombat);
+        setMaxStackSize(1);
     }
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
         super.addInformation(stack, player, list, p_77624_4_);
-        //noinspection unchecked
-        list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("tc.visdiscount") + ": " + this.getVisDiscount(stack, player, null) + "%");
+        if(this.getVisDiscount(stack, player, null) != 0) {
+            //noinspection unchecked
+            list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("tc.visdiscount") + ": " + this.getVisDiscount(stack, player, null) + "%");
+        }
     }
 
     @Override

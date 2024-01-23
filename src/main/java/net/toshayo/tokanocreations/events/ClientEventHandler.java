@@ -30,10 +30,17 @@ public class ClientEventHandler {
         GL11.glPushMatrix();
         GL11.glColor4f(1F, 1F, 1F, 1F);
         GL11.glRotatef(180, 1, 0, 0);
+        GL11.glRotatef(5, 0, 0, 1);
+        if(player.getCurrentArmor(2) != null) {
+            GL11.glTranslatef(0, 0, .07F);
+            if (player.isSneaking()) {
+                GL11.glTranslatef(0, 0, .01F);
+            }
+        }
         if (player.isSneaking()) {
             GL11.glRotatef(90F / (float) Math.PI, 1, 0, 0);
         }
-        GL11.glTranslatef(-0.2F, player.height * -0.3F, 0.19F);
+        GL11.glTranslatef(-0.225F, player.height * -0.3F, 0.19F);
         GL11.glScalef(0.7F, 0.7F, 0.7F);
         MinecraftForgeClient.getItemRenderer(stack, EQUIPPED).renderItem(EQUIPPED, stack);
         GL11.glPopMatrix();
