@@ -45,6 +45,8 @@ dependencies {
 
 	implementation 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:dev'
 	compileOnly 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:src'
+
+	implementation 'curse.maven:TravellersGear-224440:2262113'
 }
 
 processResources {

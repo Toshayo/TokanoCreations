@@ -8,14 +8,13 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.toshayo.tokanocreations.integration.thaumcraft.ThaumcraftPlugin;
+import net.toshayo.tokanocreations.integration.travellersgear.TravellersGearIntegration;
 import net.toshayo.tokanocreations.item.*;
 import net.toshayo.tokanocreations.proxy.CommonProxy;
 
@@ -25,7 +24,7 @@ import java.util.List;
 		modid = TokanoCreationsMod.MOD_ID,
 		name = TokanoCreationsMod.NAME,
 		version = TokanoCreationsMod.VERSION,
-		dependencies = "after:Thaumcraft@[4.2.3.5,)",
+		dependencies = "after:Thaumcraft@[4.2.3.5,);after:TravellersGear@[1.16.6,);after:baubles@[1.0.1.10,)",
 		certificateFingerprint = "ee4beef430d574ba7d8c096a4f7f9c6c755bd30f"
 )
 public class TokanoCreationsMod {
@@ -64,12 +63,9 @@ public class TokanoCreationsMod {
 		}
 	}.setUnlocalizedName(MOD_ID + ".holy_core").setTextureName(MOD_ID + ":holy_core");
 
+	public static final Item TAIYAKI_RAW = new Item().setCreativeTab(CreativeTabs.tabFood).setUnlocalizedName(MOD_ID + ".taiyaki_raw").setTextureName(MOD_ID + ":taiyaki_raw");
 	public static final Item TAIYAKI = new TaiyakiItem().setTextureName(MOD_ID + ":taiyaki");
-
-
-	public TokanoCreationsMod() {
-	
-	}
+	public static Item TITLE_FAN;
 
 	@SuppressWarnings("unused")
 	@Mod.EventHandler
@@ -81,45 +77,18 @@ public class TokanoCreationsMod {
 		GameRegistry.registerItem(HOLY_CORE, HOLY_CORE.getUnlocalizedName());
 		GameRegistry.registerItem(CROSS, CROSS.getUnlocalizedName());
 		GameRegistry.registerItem(TAIYAKI, TAIYAKI.getUnlocalizedName());
+		GameRegistry.registerItem(TAIYAKI_RAW, TAIYAKI_RAW.getUnlocalizedName());
 
+		if(Loader.isModLoaded("TravellersGear")) {
+			TravellersGearIntegration.onPreInit();
+		}
 		proxy.onPreInit();
-
-		registerCrafts();
 	}
 
 	@SuppressWarnings("unused")
 	@Mod.EventHandler
 	public void onPostInit(FMLPostInitializationEvent event) {
 		proxy.onPostInit();
-	}
-	
-	private void registerCrafts() {
-		for(int i = 0; i < SwordShapeItem.REINFORCE_COOK_TIMES - 1; i++)
-			GameRegistry.addSmelting(new ItemStack(SWORD_SHAPE, 1, i), new ItemStack(SWORD_SHAPE, 1, i + 1), 100);
-		GameRegistry.addSmelting(new ItemStack(SWORD_SHAPE, 1, SwordShapeItem.REINFORCE_COOK_TIMES - 1), new ItemStack(SWORD_SHAPE_REINFORCED), 100);
-		if(Loader.isModLoaded("Thaumcraft"))
-			ThaumcraftPlugin.registerCrafts();
-		else {
-			GameRegistry.addShapedRecipe(new ItemStack(SWORD),
-					" F ", "HSO", "FCF",
-					'F', new ItemStack(Items.feather),
-					'H', new ItemStack(IDEAL_HAIR, 1, 0),
-					'S', new ItemStack(SWORD_SHAPE_REINFORCED),
-					'O', new ItemStack(IDEAL_HAIR, 1, 1),
-					'C', new ItemStack(HOLY_CORE)
-			);
-			GameRegistry.addShapedRecipe(new ItemStack(SWORD_SHAPE),
-					"B", "B", "I",
-					'B', new ItemStack(Blocks.iron_block),
-					'I', new ItemStack(Items.iron_ingot)
-			);
-			GameRegistry.addShapedRecipe(new ItemStack(HOLY_CORE),
-					"IFI", "FAF", "IFI",
-					'I', new ItemStack(Items.gold_ingot),
-					'F', new ItemStack(Items.feather),
-					'A', new ItemStack(Items.golden_apple)
-			);
-		}
 	}
 
 	@SuppressWarnings("unused")

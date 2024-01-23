@@ -13,13 +13,14 @@ import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.common.config.ConfigItems;
 
-public class ThaumcraftPlugin {
+public class ThaumcraftIntegration {
 	public static ShapedArcaneRecipe SWORD_SHAPE_RECIPE;
 	public static ShapedArcaneRecipe HOLY_CORE_RECIPE;
-	public static ShapedArcaneRecipe TAIYAKI_RECIPE;
+	public static ShapedArcaneRecipe TAIYAKI_RAW_RECIPE;
 	public static CrucibleRecipe ORIGINAL_IDEAL_HAIR_RECIPE;
 	public static InfusionRecipe SWORD_RECIPE;
 	public static InfusionRecipe CROSS_RECIPE;
+	public static InfusionRecipe TITLE_FAN_RECIPE;
 
 	public static void postInit() {
 		ThaumcraftApi.registerObjectTag(
@@ -100,7 +101,7 @@ public class ThaumcraftPlugin {
 				'I', new ItemStack(Items.iron_ingot)
 		);
 		HOLY_CORE_RECIPE = ThaumcraftApi.addArcaneCraftingRecipe(
-				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
+				ModThaumcraftResearch.TOKANO_CREATIONS_IDEAL_RESEARCH_KEY,
 				new ItemStack(TokanoCreationsMod.HOLY_CORE),
 				new AspectList()
 						.add(Aspect.AIR, 20)
@@ -109,11 +110,11 @@ public class ThaumcraftPlugin {
 				"IFI", "FAF", "IFI",
 				'I', new ItemStack(Items.gold_ingot),
 				'F', new ItemStack(Items.feather),
-				'A', ThaumcraftPlugin.getAmuletStack()
+				'A', ThaumcraftIntegration.getAmuletStack()
 		);
-		TAIYAKI_RECIPE = ThaumcraftApi.addArcaneCraftingRecipe(
+		TAIYAKI_RAW_RECIPE = ThaumcraftApi.addArcaneCraftingRecipe(
 				ModThaumcraftResearch.TOKANO_CREATIONS_SWEETS_RESEARCH_KEY,
-				new ItemStack(TokanoCreationsMod.TAIYAKI),
+				new ItemStack(TokanoCreationsMod.TAIYAKI_RAW),
 				new AspectList()
 						.add(Aspect.AIR, 10)
 						.add(Aspect.FIRE, 20)
@@ -121,10 +122,10 @@ public class ThaumcraftPlugin {
 						.add(Aspect.ORDER, 15),
 				" WW", "WCW", " WW",
 				'W', OreDictionary.doesOreNameExist("dustWheat") ? OreDictionary.getOres("dustWheat").get(0) : new ItemStack(Items.wheat),
-				'C', new ItemStack(Items.sugar)
+				'C', new ItemStack(Items.dye, 1, 3)
 		);
 		ORIGINAL_IDEAL_HAIR_RECIPE = ThaumcraftApi.addCrucibleRecipe(
-				ModThaumcraftResearch.TOKANO_CREATIONS_RESEARCH_KEY,
+				ModThaumcraftResearch.TOKANO_CREATIONS_IDEAL_RESEARCH_KEY,
 				new ItemStack(TokanoCreationsMod.IDEAL_HAIR, 1, 1),
 				new ItemStack(TokanoCreationsMod.IDEAL_HAIR),
 				new AspectList()
