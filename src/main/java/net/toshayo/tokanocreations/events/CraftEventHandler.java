@@ -26,7 +26,7 @@ public class CraftEventHandler {
                 for (int x = -16; x <= 16; x++) {
                     if (event.player.worldObj.getTileEntity((int) event.player.posX + x, (int) event.player.posY + y, (int) event.player.posZ + z) instanceof TileInfusionMatrix) {
                         iX = event.player.posX + x;
-                        iY = event.player.posY + y - .5;
+                        iY = event.player.posY + y + .5;
                         iZ = event.player.posZ + z;
                     }
                 }
