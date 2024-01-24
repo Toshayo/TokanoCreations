@@ -122,10 +122,11 @@ public class ModThaumcraftResearch {
 							.add(Aspect.MAN, 8)
 							.add(Aspect.SENSES, 32)
 							.add(Aspect.SOUL, 4),
-					9, -3, 0,
+					11, -4, 0,
 					new ResourceLocation("travellersgear", "textures/items/simplegear_title.png")
 			)
 					.setPages(
+							new ResearchPage("tc.research_page." + TokanoCreationsMod.MOD_ID + "." + TOKANO_CREATIONS_FAN_RESEARCH_KEY + ".1"),
 							new ResearchPage(ThaumcraftIntegration.TITLE_FAN_RECIPE)
 					)
 					.setConcealed()

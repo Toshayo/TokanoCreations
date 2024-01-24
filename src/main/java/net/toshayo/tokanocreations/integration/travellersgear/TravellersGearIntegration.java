@@ -3,6 +3,7 @@ package net.toshayo.tokanocreations.integration.travellersgear;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.toshayo.tokanocreations.TokanoCreationsMod;
 import net.toshayo.tokanocreations.integration.thaumcraft.ModThaumcraftResearch;
 import net.toshayo.tokanocreations.integration.thaumcraft.ThaumcraftIntegration;
@@ -18,9 +19,13 @@ public class TravellersGearIntegration {
     }
 
     public static void registerThaumcraftCrafts() {
+        ItemStack stack = new ItemStack(TokanoCreationsMod.TITLE_FAN);
+        stack.setTagCompound(new NBTTagCompound());
+        stack.getTagCompound().setString("title", TokanoCreationsMod.MOD_ID + ".title_fan.title");
+
         ThaumcraftIntegration.TITLE_FAN_RECIPE = ThaumcraftApi.addInfusionCraftingRecipe(
                 ModThaumcraftResearch.TOKANO_CREATIONS_FAN_RESEARCH_KEY,
-                new ItemStack(TokanoCreationsMod.TITLE_FAN),
+                stack,
                 2,
                 new AspectList()
                         .add(Aspect.MAN, 16)

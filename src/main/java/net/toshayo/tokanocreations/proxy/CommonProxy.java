@@ -1,5 +1,6 @@
 package net.toshayo.tokanocreations.proxy;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
@@ -9,6 +10,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import net.toshayo.tokanocreations.TokanoCreationsMod;
 import net.toshayo.tokanocreations.events.AnvilEventHandler;
+import net.toshayo.tokanocreations.events.CraftEventHandler;
 import net.toshayo.tokanocreations.events.PlayerEventHandler;
 import net.toshayo.tokanocreations.integration.thaumcraft.ThaumcraftIntegration;
 import net.toshayo.tokanocreations.integration.travellersgear.TravellersGearIntegration;
@@ -36,6 +38,7 @@ public class CommonProxy {
 
         if(thaumcraftInstalled) {
             ThaumcraftIntegration.postInit();
+            FMLCommonHandler.instance().bus().register(new CraftEventHandler());
         } else {
             MinecraftForge.EVENT_BUS.register(new AnvilEventHandler());
         }

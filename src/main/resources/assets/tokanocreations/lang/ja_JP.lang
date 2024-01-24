@@ -1,4 +1,4 @@
-item.tokanocreations.cross.name=クロス
+item.tokanocreations.cross.name=十字架
 item.tokanocreations.sword.name=イデアルちゃんの剣
 item.tokanocreations.sword_shape.name=剣の形
 item.tokanocreations.sword_shape.tooltip[0]=火は刃を強化する...
@@ -30,3 +30,4 @@ tc.research_page.tokanocreations.TOKANO_CREATIONS_HAIR_SETTING.3=§l16.§r§oそ
 tc.research_page.tokanocreations.TOKANO_CREATIONS_SWORD.1=§l8.§r§o普段は十字の形を模した白黒の直剣を使って戦います。ない場合は体術で(かなりつおい)
 tc.research_page.tokanocreations.TOKANO_CREATIONS_BAUBLES.1=イデアルちゃんのアートに登場するアクセサリー。
 tc.research_page.tokanocreations.TOKANO_CREATIONS_SWEETS.1=§l29.§r§oイデアルは甘い物大好きです。気づいたらメロンパンくわえてるかも…(頭よく使うからね、仕方がないね)
+tc.research_page.tokanocreations.TOKANO_CREATIONS_FAN.1=剣と十字架は製作後に返却されますが、エンチャントとアップグレードは失われます。
