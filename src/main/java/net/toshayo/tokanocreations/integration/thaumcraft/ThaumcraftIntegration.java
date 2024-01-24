@@ -158,7 +158,7 @@ public class ThaumcraftIntegration {
 		CROSS_RECIPE = ThaumcraftApi.addInfusionCraftingRecipe(
 				ModThaumcraftResearch.TOKANO_CREATIONS_BAUBLES_RESEARCH_KEY,
 				new ItemStack(TokanoCreationsMod.CROSS),
-				3,
+				4,
 				new AspectList()
 						.add(Aspect.MAGIC, 32)
 						.add(Aspect.LIGHT, 64)
