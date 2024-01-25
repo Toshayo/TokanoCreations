@@ -18,24 +18,26 @@ public class CraftEventHandler {
      */
     @SubscribeEvent
     public void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
-        double iX = event.player.posX;
-        double iY = event.player.posY + 1;
-        double iZ = event.player.posZ;
-        for(int y =- 16; y <= 16; y++) {
-            for (int z = -16; z <= 16; z++) {
-                for (int x = -16; x <= 16; x++) {
-                    if (event.player.worldObj.getTileEntity((int) event.player.posX + x, (int) event.player.posY + y, (int) event.player.posZ + z) instanceof TileInfusionMatrix) {
-                        iX = event.player.posX + x;
-                        iY = event.player.posY + y + .5;
-                        iZ = event.player.posZ + z;
+        if(event.crafting != null && event.crafting.getItem() == TokanoCreationsMod.TITLE_FAN) {
+            double iX = event.player.posX;
+            double iY = event.player.posY + 1;
+            double iZ = event.player.posZ;
+            for (int y = -16; y <= 16; y++) {
+                for (int z = -16; z <= 16; z++) {
+                    for (int x = -16; x <= 16; x++) {
+                        if (event.player.worldObj.getTileEntity((int) event.player.posX + x, (int) event.player.posY + y, (int) event.player.posZ + z) instanceof TileInfusionMatrix) {
+                            iX = event.player.posX + x;
+                            iY = event.player.posY + y + .5;
+                            iZ = event.player.posZ + z;
+                        }
                     }
                 }
             }
-        }
-        for(Item item : Arrays.asList(TokanoCreationsMod.SWORD, TokanoCreationsMod.CROSS)) {
-            EntitySpecialItem entityItem = new EntitySpecialItem(event.player.worldObj, iX, iY, iZ, new ItemStack(item));
-            entityItem.motionX = entityItem.motionY = entityItem.motionZ = 0;
-            event.player.worldObj.spawnEntityInWorld(entityItem);
+            for (Item item : Arrays.asList(TokanoCreationsMod.SWORD, TokanoCreationsMod.CROSS)) {
+                EntitySpecialItem entityItem = new EntitySpecialItem(event.player.worldObj, iX, iY, iZ, new ItemStack(item));
+                entityItem.motionX = entityItem.motionY = entityItem.motionZ = 0;
+                event.player.worldObj.spawnEntityInWorld(entityItem);
+            }
         }
     }
 }
