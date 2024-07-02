@@ -1,8 +1,13 @@
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.nio.file.StandardCopyOption
+
 buildscript {
 	repositories {
 		maven { url = 'https://maven.minecraftforge.net/' }
 		maven { url = 'https://plugins.gradle.org/m2' }
 		mavenCentral()
+		gradlePluginPortal()
 	}
 	dependencies {
 		classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.1.1') {
@@ -11,12 +16,19 @@ buildscript {
 	}
 }
 
+plugins {
+	id "com.modrinth.minotaur" version "2.8.7"
+	// It's safest to have this on 2.+ to get the latest features and
+	// bug fixes without having to worry about breaking changes.
+}
+
 apply plugin: 'forge'
+
 
 version = mod_version
 
 compileJava.options.encoding = 'UTF-8'
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+java.sourceCompatibility = java.targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
 	version = "1.7.10-10.13.4.1614-1.7.10"
@@ -26,6 +38,7 @@ minecraft {
 }
 
 repositories {
+	gradlePluginPortal()
 	maven {
 		name = 'ModMaven'
 		url = 'https://modmaven.dev'
@@ -52,33 +65,40 @@ dependencies {
 }
 
 processResources {
-	inputs.property "version", project.mod_version
-	inputs.property "credits", project.credits
+	inputs.property "version", mod_version
+	inputs.property "credits", credits
 	
 	// replace stuff in mcmod.info, nothing else
 	from(sourceSets.main.resources.srcDirs) {
 		include 'mcmod.info'
 		
 		// replace version and mcversion
-		expand 'version':project.mod_version, 'credits':project.credits
+		expand (
+				mod_id: mod_id,
+				version: mod_version,
+				credits: credits
+		)
 	}
-		
-	// copy everything else, thats not the mcmod.info
-	from(sourceSets.main.resources.srcDirs) {
-		exclude 'mcmod.info'
-	}
+	// copy everything else, that's not the mcmod.info
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 build {
 	doLast {
 		if(project.hasProperty("TOSHAYO_JKS")) {
 			println "Using Project properties for jar signing."
-			def jks_file = project.TOSHAYO_JKS
-			def passwd = project.TOSHAYO_PWD
+			def jks_file = TOSHAYO_JKS
+			def passwd = TOSHAYO_PWD
 			if (jks_file != null && passwd != null) {
+				//noinspection HttpUrlsUsage
 				def exec_line = [
-						"jarsigner", "-keystore", jks_file, "-storepass",
-						passwd, jar.archivePath, project.TOSHAYO_APP_ALIAS
+						"jarsigner",
+						"-sigalg", "SHA256withECDSA",
+						"-digestalg", "SHA-256",
+						"-keystore", jks_file,
+						"-storepass", passwd,
+						"-tsa", "http://timestamp.digicert.com",
+						jar.archiveFile.get(), TOSHAYO_APP_ALIAS
 				].execute()
 				exec_line.waitFor()
 				if(exec_line.exitValue() != 0) {
@@ -90,3 +110,34 @@ build {
 		}
 	}
 }
+
+modrinth {
+	token = project.TOSHAYO_MODRINTH
+	projectId = "tokanocreations"
+	versionName = project.archivesBaseName + "_1.7.10_" + project.mod_version
+	versionNumber = project.mod_version
+	versionType = "release"
+	uploadFile = jar.archiveFile.get()
+	gameVersions = ["1.7.10"]
+	loaders = ["forge"]
+
+	if (Files.exists(Paths.get("changelog"))) {
+		changelog = String.join("\r\n", Files.readAllLines(Paths.get("changelog")))
+		tasks.modrinth.doLast {
+			Files.move(Paths.get("changelog"), Paths.get("changelog.bak"), StandardCopyOption.REPLACE_EXISTING)
+			Files.createFile(Paths.get("changelog"))
+		}
+	}
+}
+
+tasks.modrinth {
+	doFirst {
+		def tag_checker = ["git", "tag", "-l", "v" + mod_version].execute()
+		tag_checker.waitFor()
+		if(tag_checker.text.trim() != "v" + mod_version) {
+			throw new RuntimeException("Version not tagged!")
+		}
+	}
+}
+
+tasks.modrinth.dependsOn(build)

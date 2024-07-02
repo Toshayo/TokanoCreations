@@ -1,6 +1,6 @@
 [
 	{
-		"modid": "tokanocreations",
+		"modid": "${mod_id}",
 		"name": "Tokano Creations Mod",
 		"description": "tokachan5656's characters items with optional (but recommended) Thaumcraft and TravellersGear integrations",
 		"version":"${version}",

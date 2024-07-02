@@ -67,12 +67,16 @@ public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscoun
 
     @Override
     public void onEquipped(ItemStack itemStack, EntityLivingBase entityLivingBase) {
-        Thaumcraft.instance.runicEventHandler.isDirty = true;
+        if(Loader.isModLoaded("Thaumcraft")) {
+            Thaumcraft.instance.runicEventHandler.isDirty = true;
+        }
     }
 
     @Override
     public void onUnequipped(ItemStack itemStack, EntityLivingBase entityLivingBase) {
-        Thaumcraft.instance.runicEventHandler.isDirty = true;
+        if(Loader.isModLoaded("Thaumcraft")) {
+            Thaumcraft.instance.runicEventHandler.isDirty = true;
+        }
     }
 
     @Override
