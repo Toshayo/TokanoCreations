@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.toshayo.tokanocreations.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "BlocksMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

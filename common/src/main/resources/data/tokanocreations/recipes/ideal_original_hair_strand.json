@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:clock"
+  },
+  "base": {
+    "item": "tokanocreations:ideal_hair_strand"
+  },
+  "result": {
+    "item": "tokanocreations:ideal_original_hair_strand"
+  }
+}

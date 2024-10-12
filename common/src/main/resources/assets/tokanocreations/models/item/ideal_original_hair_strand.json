@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tokanocreations:item/ideal_original_hair_strand"
+  }
+}

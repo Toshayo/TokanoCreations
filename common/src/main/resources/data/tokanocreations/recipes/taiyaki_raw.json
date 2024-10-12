@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "minecraft:wheat"
+    },
+    "C": {
+      "item": "minecraft:cocoa_beans"
+    }
+  },
+  "pattern": [
+    " WW",
+    "WCW",
+    " WW"
+  ],
+  "result": {
+    "item": "tokanocreations:taiyaki_raw"
+  }
+}

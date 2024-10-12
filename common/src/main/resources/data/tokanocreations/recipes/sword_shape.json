@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "minecraft:iron_block"
+    },
+    "H": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "B",
+    "B",
+    "H"
+  ],
+  "result": {
+    "item": "tokanocreations:sword_shape"
+  }
+}

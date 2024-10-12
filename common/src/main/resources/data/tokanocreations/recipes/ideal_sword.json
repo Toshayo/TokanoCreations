@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "H": {
+      "item": "tokanocreations:ideal_hair_strand"
+    },
+    "S": {
+      "item": "tokanocreations:sword_shape_reinforced"
+    },
+    "O": {
+      "item": "tokanocreations:ideal_original_hair_strand"
+    },
+    "C": {
+      "item": "tokanocreations:holy_core"
+    }
+  },
+  "pattern": [
+    " F ",
+    "HSO",
+    "FCF"
+  ],
+  "result": {
+    "item": "tokanocreations:ideal_sword"
+  }
+}

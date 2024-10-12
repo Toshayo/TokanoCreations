@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "A": {
+      "item": "minecraft:golden_apple"
+    }
+  },
+  "pattern": [
+    "IFI",
+    "FAF",
+    "IFI"
+  ],
+  "result": {
+    "item": "tokanocreations:holy_core"
+  }
+}
