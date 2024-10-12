@@ -1,0 +1,50 @@
+{
+  "loader": "forge:obj",
+  "model": "tokanocreations:models/ideal_sword.obj",
+  "flip_v": true,
+  "textures": {
+    "sword": "tokanocreations:models/sword_shape_reforged0"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 90, 0, 0 ],
+      "translation": [ 3.75, 11.00, 5.25 ],
+      "scale": [ 0.50, 0.50, 0.50 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 90, 0, 0 ],
+      "translation": [ -3.75, 11.00, 5.25 ],
+      "scale": [ 0.50, 0.50, 0.50 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 84, 0, 354 ],
+      "translation": [ -1.00, 9.25, 6.75 ],
+      "scale": [ 0.30, 0.30, 0.30 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 84, 0, 354 ],
+      "translation": [ -5.00, 9.00, 6.75 ],
+      "scale": [ 0.30, 0.30, 0.30 ]
+    },
+    "gui": {
+      "rotation": [ 90, 316, 90 ],
+      "translation": [ -3.50, 2.50, 0.00 ],
+      "scale": [ 0.40, 0.50, 0.25 ]
+    },
+    "head": {
+      "rotation": [ 0, 0, 0 ],
+      "translation": [ 0.00, 0.00, 0.00 ],
+      "scale": [ 1.00, 1.00, 1.00 ]
+    },
+    "fixed": {
+      "rotation": [ 90, 46, 90 ],
+      "translation": [ -1.00, -2.75, 3.50 ],
+      "scale": [ 0.33, 0.33, 0.33 ]
+    },
+    "ground": {
+      "rotation": [ 316, 0, 0 ],
+      "translation": [ 2.00, 13.25, -2.00 ],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    }
+  }
+}

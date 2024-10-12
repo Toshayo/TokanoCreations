@@ -1,6 +1,6 @@
 {
   "type": "minecraft:blasting",
-  "cookingtime": 60,
+  "cookingtime": 600,
   "experience": 5,
   "ingredient": {
     "item": "tokanocreations:sword_shape"

@@ -15,6 +15,8 @@ import net.minecraft.server.packs.resources.ResourceManager;
 
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Function;
 
 /***
@@ -67,7 +69,15 @@ public class ItemOBJLoader implements ModelVariantProvider, Function<ResourceMan
                                     }
                                 }
 
-                                return OBJ_LOADER.loadModelResource(parentPath, transformation, flipV);
+                                Map<String, ResourceLocation> textureOverrides = new HashMap<>();
+                                if(rawModel.has("textures")) {
+                                    JsonObject textures = rawModel.getAsJsonObject("textures");
+                                    for(var keyValue : textures.entrySet()) {
+                                        textureOverrides.put(keyValue.getKey(), new ResourceLocation(keyValue.getValue().getAsString()));
+                                    }
+                                }
+
+                                return OBJ_LOADER.loadModelResource(parentPath, transformation, flipV, textureOverrides);
                             }
                         }
                     }

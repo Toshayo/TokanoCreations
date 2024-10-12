@@ -1,0 +1,6 @@
+{
+  "parent": "tokanocreations:item/ideal_sword",
+  "textures": {
+    "sword": "tokanocreations:models/sword_shape_reforged1"
+  }
+}

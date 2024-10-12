@@ -15,6 +15,7 @@ import net.fabricmc.fabric.api.renderer.v1.mesh.MeshBuilder;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
+import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.*;
 import net.minecraft.core.Direction;
@@ -28,28 +29,41 @@ import java.util.function.Function;
 
 public class OBJUnbakedModel implements UnbakedModel {
 
-    public static final Material DEFAULT_SPRITE = new Material(InventoryMenu.BLOCK_ATLAS, null);
+    public static final Material DEFAULT_SPRITE = new Material(InventoryMenu.BLOCK_ATLAS, MissingTextureAtlasSprite.getLocation());
 
     private final Obj obj;
     private final Map<String, FOMLMaterial> mtls;
     private final ItemTransforms transform;
     private final Material sprite;
     private final boolean flipV;
+    private final Map<String, ResourceLocation> textureOverrides;
 
-    public OBJUnbakedModel(Obj obj, Map<String, FOMLMaterial> mtls, ItemTransforms transform, boolean flipV) {
+
+    public OBJUnbakedModel(Obj obj, Map<String, FOMLMaterial> mtls, ItemTransforms transform, boolean flipV, Map<String, ResourceLocation> textureOverrides) {
         this.obj = obj;
         this.mtls = mtls;
         this.transform = transform == null ? ItemTransforms.NO_TRANSFORMS : transform;
         this.flipV = flipV;
+        this.textureOverrides = textureOverrides;
 
         Mtl mtl = this.findMtlForName("sprite");
+
         this.sprite = !mtls.isEmpty()
-                ? new Material(InventoryMenu.BLOCK_ATLAS, new ResourceLocation((mtl == null ? mtls.values().iterator().next() : mtl).getMapKd()))
+                ? new Material(InventoryMenu.BLOCK_ATLAS, getTextureWithOverrides((mtl == null ? mtls.values().iterator().next() : mtl).getMapKd()))
                 : DEFAULT_SPRITE;
     }
 
     private FOMLMaterial findMtlForName(String name) {
         return mtls.get(name);
+    }
+
+    private ResourceLocation getTextureWithOverrides(String textureName) {
+        if(textureName.startsWith("#")) {
+            if(textureOverrides.containsKey(textureName.substring(1))) {
+                return textureOverrides.get(textureName.substring(1));
+            }
+        }
+        return new ResourceLocation(textureName);
     }
 
     @Override
@@ -60,7 +74,7 @@ public class OBJUnbakedModel implements UnbakedModel {
     @Override
     public @NotNull Collection<Material> getMaterials(Function<ResourceLocation, UnbakedModel> unbakedModelGetter, Set<Pair<String, String>> unresolvedTextureReferences) {
         List<Material> sprites = new ArrayList<>();
-        mtls.values().forEach(mtl -> sprites.add(new Material(InventoryMenu.BLOCK_ATLAS, new ResourceLocation(mtl.getMapKd()))));
+        mtls.values().forEach(mtl -> sprites.add(new Material(InventoryMenu.BLOCK_ATLAS, getTextureWithOverrides(mtl.getMapKd()))));
 
         return sprites;
     }
@@ -96,7 +110,7 @@ public class OBJUnbakedModel implements UnbakedModel {
                         }
                     }
 
-                    mtlSprite = getMtlSprite(textureGetter, new ResourceLocation(mtl.getMapKd()));
+                    mtlSprite = getMtlSprite(textureGetter, getTextureWithOverrides(mtl.getMapKd()));
                 }
 
                 for (int i = 0; i < matGroupObj.getNumFaces(); i++) {

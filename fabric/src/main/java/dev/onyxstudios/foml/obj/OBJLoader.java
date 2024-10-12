@@ -30,12 +30,12 @@ public class OBJLoader implements ModelResourceProvider, Function<ResourceManage
     private OBJLoader() {
     }
 
-    public OBJUnbakedModel loadModel(Reader reader, String modid, ResourceManager manager, ItemTransforms transform, boolean flipV) {
+    public OBJUnbakedModel loadModel(Reader reader, String modid, ResourceManager manager, ItemTransforms transform, boolean flipV, Map<String, ResourceLocation> textureOverrides) {
         OBJUnbakedModel model;
 
         try {
             Obj obj = ObjUtils.convertToRenderable(ObjReader.read(reader));
-            model = new OBJUnbakedModel(ObjUtils.triangulate(obj), loadMTL(manager, modid, obj.getMtlFileNames()), transform, flipV);
+            model = new OBJUnbakedModel(ObjUtils.triangulate(obj), loadMTL(manager, modid, obj.getMtlFileNames()), transform, flipV, textureOverrides);
         } catch (IOException e) {
             LOGGER.error("Could not read obj model!", e);
             return null;
@@ -67,17 +67,17 @@ public class OBJLoader implements ModelResourceProvider, Function<ResourceManage
 
     @Override
     public UnbakedModel loadModelResource(ResourceLocation identifier, ModelProviderContext modelProviderContext) {
-        return loadModelResource(identifier, ItemTransforms.NO_TRANSFORMS, false);
+        return loadModelResource(identifier, ItemTransforms.NO_TRANSFORMS, false, Map.of());
     }
 
-    protected UnbakedModel loadModelResource(ResourceLocation identifier, ItemTransforms transform, boolean flipV) {
+    protected UnbakedModel loadModelResource(ResourceLocation identifier, ItemTransforms transform, boolean flipV, Map<String, ResourceLocation> textureOverrides) {
         if (identifier.getPath().endsWith(".obj")) {
             ResourceManager resourceManager = Minecraft.getInstance().getResourceManager();
 
             var resource = resourceManager.getResource(new ResourceLocation(identifier.getNamespace(), identifier.getPath()));
             if (resource.isPresent()) {
                 try (Reader reader = new InputStreamReader(resource.get().open())) {
-                    return loadModel(reader, identifier.getNamespace(), resourceManager, transform, flipV);
+                    return loadModel(reader, identifier.getNamespace(), resourceManager, transform, flipV, textureOverrides);
                 } catch (IOException e) {
                     LOGGER.error("Unable to load OBJ Model, Source: " + identifier, e);
                 }

@@ -60,7 +60,7 @@ public class OBJBakedModel implements BakedModel, FabricBakedModel {
 
     @Override
     public boolean isGui3d() {
-        return true; // FIXME : hasDepth returned true. Is it true here, false or it's a different property?
+        return true;
     }
 
     @Override
