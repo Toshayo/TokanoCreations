@@ -33,6 +33,8 @@ public class TokanoCreationsMod {
 	public static final String NAME = "Tokano Creations Mod";
 	public static final String VERSION = "@@VERSION@@";
 
+	private static final String ENVIRONMENT_NAME = "@@ENVIRONMENT@@";
+
 	@SidedProxy(serverSide = "net.toshayo.tokanocreations.proxy.CommonProxy", clientSide = "net.toshayo.tokanocreations.proxy.ClientProxy")
 	public static CommonProxy proxy;
 
@@ -97,5 +99,10 @@ public class TokanoCreationsMod {
 			System.err.println("If you *know* this is a homebrew/custom build then this is expected, carry on.");
 			System.err.println("Otherwise, you might want to redownload this mod from the *official* CurseForge page.");
 		}
+	}
+
+	public static boolean isObfEnv() {
+		//noinspection ConstantValue,MismatchedStringCase
+		return ENVIRONMENT_NAME.equals("obf");
 	}
 }

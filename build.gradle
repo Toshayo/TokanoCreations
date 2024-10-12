@@ -35,6 +35,10 @@ minecraft {
 	runDir = "run"
 
 	replace "@@VERSION@@", project.version
+	if(project.gradle.startParameter.taskNames.size() > 0 && project.gradle.startParameter.taskNames.first().startsWith("run"))
+		replace "@@ENVIRONMENT@@", "deobf"
+	else
+		replace "@@ENVIRONMENT@@", "obf"
 }
 
 repositories {
@@ -81,6 +85,18 @@ processResources {
 	}
 	// copy everything else, that's not the mcmod.info
 	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+jar {
+	manifest {
+		attributes([
+				"Implementation-Title"    : project.name,
+				"Implementation-Version"  : project.version,
+				"FMLCorePluginContainsFMLMod": "true",
+				"FMLCorePlugin": "net.toshayo.tokanocreations.TokanoCreationsPlugin",
+				"Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+		])
+	}
 }
 
 build {
