@@ -11,7 +11,6 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.toshayo.tokanocreations.TokanoCreationsMod;
 import net.toshayo.tokanocreations.events.AnvilEventHandler;
 import net.toshayo.tokanocreations.events.CraftEventHandler;
-import net.toshayo.tokanocreations.events.PlayerEventHandler;
 import net.toshayo.tokanocreations.integration.thaumcraft.ThaumcraftIntegration;
 import net.toshayo.tokanocreations.integration.travellersgear.TravellersGearIntegration;
 import net.toshayo.tokanocreations.item.SwordShapeItem;
@@ -22,8 +21,6 @@ public class CommonProxy {
     }
 
     public void onPostInit() {
-        MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
-
         boolean thaumcraftInstalled = Loader.isModLoaded("Thaumcraft");
 
         if(Loader.isModLoaded("TravellersGear")) {
