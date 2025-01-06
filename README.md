@@ -23,4 +23,4 @@ make phrases rather simple, and I've cross-checked the translation, but it is st
 ## Mod usage
 The mod has been developed for myself and for the artist,
 so if you want to use the mod in a modpack,
-I would be glad if you notify me. (Discord : toshayo)
+I would be glad if you open an issue here.
