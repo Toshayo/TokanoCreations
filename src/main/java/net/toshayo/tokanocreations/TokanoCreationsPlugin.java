@@ -11,6 +11,8 @@ import java.util.Map;
 public class TokanoCreationsPlugin implements IFMLLoadingPlugin {
     public static final Logger LOGGER = LogManager.getLogger("TokanoCreationsPlugin");
 
+    private static final String ENVIRONMENT_NAME = "@@ENVIRONMENT@@";
+
     @Override
     public String[] getASMTransformerClass() {
         return new String[] {
@@ -36,5 +38,10 @@ public class TokanoCreationsPlugin implements IFMLLoadingPlugin {
     @Override
     public String getAccessTransformerClass() {
         return null;
+    }
+
+    public static boolean isObfEnv() {
+        //noinspection ConstantValue,MismatchedStringCase
+        return ENVIRONMENT_NAME.equals("obf");
     }
 }

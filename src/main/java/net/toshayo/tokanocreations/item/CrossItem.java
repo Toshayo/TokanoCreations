@@ -44,6 +44,7 @@ public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscoun
         setMaxStackSize(1);
     }
 
+    @Optional.Method(modid = "Thaumcraft")
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
         super.addInformation(stack, player, list, p_77624_4_);
@@ -55,16 +56,19 @@ public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscoun
         }
     }
 
+    @Optional.Method(modid = "Baubles")
     @Override
     public BaubleType getBaubleType(ItemStack itemStack) {
         return BaubleType.AMULET;
     }
 
+    @Optional.Method(modid = "Baubles")
     @Override
     public void onWornTick(ItemStack itemStack, EntityLivingBase entityLivingBase) {
 
     }
 
+    @Optional.Method(modid = "Baubles")
     @Override
     public void onEquipped(ItemStack itemStack, EntityLivingBase entityLivingBase) {
         if(Loader.isModLoaded("Thaumcraft")) {
@@ -72,6 +76,7 @@ public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscoun
         }
     }
 
+    @Optional.Method(modid = "Baubles")
     @Override
     public void onUnequipped(ItemStack itemStack, EntityLivingBase entityLivingBase) {
         if(Loader.isModLoaded("Thaumcraft")) {
@@ -79,21 +84,25 @@ public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscoun
         }
     }
 
+    @Optional.Method(modid = "Baubles")
     @Override
     public boolean canEquip(ItemStack itemStack, EntityLivingBase entityLivingBase) {
         return true;
     }
 
+    @Optional.Method(modid = "Baubles")
     @Override
     public boolean canUnequip(ItemStack itemStack, EntityLivingBase entityLivingBase) {
         return true;
     }
 
+    @Optional.Method(modid = "Thaumcraft")
     @Override
     public int getRunicCharge(ItemStack itemStack) {
         return 8;
     }
 
+    @Optional.Method(modid = "Thaumcraft")
     @Override
     public int getVisDiscount(ItemStack itemStack, EntityPlayer entityPlayer, Aspect aspect) {
         return EventHandlerRunic.getFinalCharge(itemStack) * 2;

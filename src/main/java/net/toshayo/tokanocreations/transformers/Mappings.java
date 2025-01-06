@@ -1,6 +1,6 @@
 package net.toshayo.tokanocreations.transformers;
 
-import net.toshayo.tokanocreations.TokanoCreationsMod;
+import net.toshayo.tokanocreations.TokanoCreationsPlugin;
 
 import java.util.HashMap;
 
@@ -13,6 +13,6 @@ public class Mappings {
     }};
 
     public static String get(String key) {
-        return TokanoCreationsMod.isObfEnv() ? MAPPINGS.get(key) : key;
+        return TokanoCreationsPlugin.isObfEnv() ? MAPPINGS.get(key) : key;
     }
 }

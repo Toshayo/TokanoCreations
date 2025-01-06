@@ -53,8 +53,8 @@ repositories {
 }
 
 dependencies {
-	implementation 'curse.maven:baubles-227083:2224857'
-	implementation 'curse.maven:thaumcraft-223628:2227552'
+	compileOnly 'curse.maven:baubles-227083:2224857'
+	compileOnly 'curse.maven:thaumcraft-223628:2227552'
 
 	implementation 'codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev'
 	compileOnly 'codechicken:CodeChickenCore:1.7.10-1.0.4.29:src'
@@ -65,7 +65,7 @@ dependencies {
 	implementation 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:dev'
 	compileOnly 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:src'
 
-	implementation 'curse.maven:TravellersGear-224440:2262113'
+	compileOnly 'curse.maven:TravellersGear-224440:2262113'
 }
 
 processResources {
@@ -83,8 +83,8 @@ processResources {
 				credits: credits
 		)
 	}
-	// copy everything else, that's not the mcmod.info
-	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 jar {

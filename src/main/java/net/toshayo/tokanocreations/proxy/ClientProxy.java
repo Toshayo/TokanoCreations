@@ -1,5 +1,6 @@
 package net.toshayo.tokanocreations.proxy;
 
+import cpw.mods.fml.common.Loader;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import net.toshayo.tokanocreations.TokanoCreationsMod;
@@ -24,6 +25,8 @@ public class ClientProxy extends CommonProxy {
     public void onPostInit() {
         super.onPostInit();
 
-        MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
+        if(Loader.isModLoaded("Baubles")) {
+            MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
+        }
     }
 }
