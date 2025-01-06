@@ -7,8 +7,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
-import net.toshayo.tokanocreations.item.SwordShapeItem;
 import net.toshayo.tokanocreations.TokanoCreationsMod;
+import net.toshayo.tokanocreations.item.SwordShapeItem;
 import org.lwjgl.opengl.GL11;
 
 public class SwordRenderer implements IItemRenderer {

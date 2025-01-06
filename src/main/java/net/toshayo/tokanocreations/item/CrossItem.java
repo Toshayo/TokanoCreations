@@ -23,10 +23,6 @@ import java.util.List;
 @Optional.InterfaceList(
         value = {
                 @Optional.Interface(
-                        modid = "Baubles",
-                        iface = "baubles.api.IBauble"
-                ),
-                @Optional.Interface(
                         modid = "Thaumcraft",
                         iface = "thaumcraft.api.IRunicArmor"
                 ),
@@ -56,19 +52,16 @@ public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscoun
         }
     }
 
-    @Optional.Method(modid = "Baubles")
     @Override
     public BaubleType getBaubleType(ItemStack itemStack) {
         return BaubleType.AMULET;
     }
 
-    @Optional.Method(modid = "Baubles")
     @Override
     public void onWornTick(ItemStack itemStack, EntityLivingBase entityLivingBase) {
 
     }
 
-    @Optional.Method(modid = "Baubles")
     @Override
     public void onEquipped(ItemStack itemStack, EntityLivingBase entityLivingBase) {
         if(Loader.isModLoaded("Thaumcraft")) {
@@ -76,7 +69,6 @@ public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscoun
         }
     }
 
-    @Optional.Method(modid = "Baubles")
     @Override
     public void onUnequipped(ItemStack itemStack, EntityLivingBase entityLivingBase) {
         if(Loader.isModLoaded("Thaumcraft")) {
@@ -84,13 +76,11 @@ public class CrossItem extends Item implements IBauble, IRunicArmor, IVisDiscoun
         }
     }
 
-    @Optional.Method(modid = "Baubles")
     @Override
     public boolean canEquip(ItemStack itemStack, EntityLivingBase entityLivingBase) {
         return true;
     }
 
-    @Optional.Method(modid = "Baubles")
     @Override
     public boolean canUnequip(ItemStack itemStack, EntityLivingBase entityLivingBase) {
         return true;
